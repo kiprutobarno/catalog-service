@@ -6,5 +6,7 @@ CREATE TABLE book(
     isbn VARCHAR(255) NOT NULL,
     price FLOAT NOT NULL,
     title VARCHAR NOT NULL,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP NOT NULL,
     version INTEGER NOT NULL
 );
