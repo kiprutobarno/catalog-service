@@ -1,5 +1,7 @@
 package com.bookshop.catalogservice.services;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -11,8 +13,6 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookValidationTests {
     private static Validator validator;
