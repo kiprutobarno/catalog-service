@@ -12,10 +12,6 @@ import com.bookshop.catalogservice.models.Book;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CatalogServiceApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
-
     @Autowired
     private WebTestClient webTestClient;
 
