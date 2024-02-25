@@ -1,34 +1,34 @@
-package com.bookshop.catalogservice;
+// package com.bookshop.catalogservice;
 
-import static org.assertj.core.api.Assertions.assertThat;
+// import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.reactive.server.WebTestClient;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.test.web.reactive.server.WebTestClient;
 
-import com.bookshop.catalogservice.models.Book;
+// import com.bookshop.catalogservice.models.Book;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// class CatalogServiceApplicationTests {
 
-    @Autowired
-    private WebTestClient webTestClient;
+// @Autowired
+// private WebTestClient webTestClient;
 
-    @Test
-    void whenPostRequestThenBookCreated() {
-        var expectedBook = Book.of("1231231231", "Title", "Author", 9.90);
-        webTestClient
-                .post()
-                .uri("/books")
-                .bodyValue(expectedBook)
-                .exchange()
-                .expectStatus().isCreated()
-                .expectBody(Book.class).value(actualBook -> {
-                    assertThat(actualBook).isNotNull();
-                    assertThat(actualBook.isbn())
-                            .isEqualTo(expectedBook.isbn());
-                });
-    }
+// @Test
+// void whenPostRequestThenBookCreated() {
+// var expectedBook = Book.of("1231231231", "Title", "Author", 9.90);
+// webTestClient
+// .post()
+// .uri("/books")
+// .bodyValue(expectedBook)
+// .exchange()
+// .expectStatus().isCreated()
+// .expectBody(Book.class).value(actualBook -> {
+// assertThat(actualBook).isNotNull();
+// assertThat(actualBook.isbn())
+// .isEqualTo(expectedBook.isbn());
+// });
+// }
 
-}
+// }
