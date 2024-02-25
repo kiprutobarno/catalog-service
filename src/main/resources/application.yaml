@@ -9,3 +9,7 @@ server:
 
 bookshop:
   greeting: welcome to the local book catalog
+
+spring:
+  profiles:
+    active: testdata
