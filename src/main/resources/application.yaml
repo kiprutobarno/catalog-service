@@ -28,6 +28,13 @@ spring:
         initial-interval: 1000
         max-interval: 2000
         multiplier: 1.1
+  datasource:
+    username: admin
+    password: admin123
+    url: jdbc:postgresql://localhost:5432/bookshopdb_catalog
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
 
 management:
   endpoints:
