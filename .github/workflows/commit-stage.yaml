@@ -31,4 +31,4 @@ jobs:
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
       - name: Build, unit tests and integration tests
-        run: mvn -Dskiptests -B --update-snapshots verify
+        run: mvn -DskipTests -B --update-snapshots verify
