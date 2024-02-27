@@ -6,7 +6,7 @@ env:
   USERNAME: kiprutobarno
   IMAGE_NAME: catalog-service
   VERSION: latest
-  PASSWORD: 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
+  TOKEN: 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
 
 jobs:
   build:
@@ -60,11 +60,14 @@ jobs:
       - name: Build container image
         run: mvn spring-boot:build-image -DskipTestsdoc
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
+        # uses: docker/login-action@v3
+        # with:
+        #   registry: ${{ env.REGISTRY }}
+        #   username: ${{ env.USERNAME }}
+        #   password: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          export CR_PAT=${{env.TOKEN}}
+          echo $CR_PAT | docker login ghcr.io -u ${{env.USERNAME}} --password-stdin
       - name: Publish container image
         run: |
           docker tag ${{ env.IMAGE_NAME }}:0.0.1-SNAPSHOT ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
