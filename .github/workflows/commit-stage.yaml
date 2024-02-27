@@ -63,7 +63,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish container image
-        run: |
-          docker tag ${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{VERSION}}
-          docker push ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{VERSION}}
+      # - name: Publish container image
+      #   run: |
+      #     docker tag ${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{VERSION}}
+      #     docker push ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{VERSION}}
