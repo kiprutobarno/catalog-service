@@ -68,5 +68,5 @@ jobs:
         run: docker images -a
       - name: Publish container image
         run: |
-          docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
+          docker tag ${{ env.IMAGE_NAME }}:0.0.1-SNAPSHOT ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
           docker push ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
