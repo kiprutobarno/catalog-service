@@ -6,6 +6,7 @@ env:
   USERNAME: kiprutobarno
   IMAGE_NAME: catalog-service
   VERSION: latest
+  PASSWORD: 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
 
 jobs:
   build:
@@ -62,10 +63,9 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWORD }}
       - name: Publish container image
         run: |
           docker tag ${{ env.IMAGE_NAME }}:0.0.1-SNAPSHOT ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
           docker push ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
-          echo ${{ secrets.GITHUB_TOKEN }}
