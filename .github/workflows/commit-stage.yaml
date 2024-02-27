@@ -64,9 +64,8 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: check images
-        run: docker images -a
       - name: Publish container image
         run: |
           docker tag ${{ env.IMAGE_NAME }}:0.0.1-SNAPSHOT ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
           docker push ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{env.VERSION}}
+          echo ${{ secrets.GITHUB_TOKEN }}
