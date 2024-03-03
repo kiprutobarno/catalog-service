@@ -2,7 +2,7 @@ name: Commit Stage
 on: push
 
 env:
-  REGISTRY: https://ghrc.io
+  REGISTRY: ghrc.io
   USERNAME: kiprutobarno
   IMAGE_NAME: catalog-service
   VERSION: latest
@@ -98,7 +98,7 @@ jobs:
         # run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
         run: |
           docker tag ${{ env.IMAGE_NAME }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker push ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
   # publish:
   #   runs-on: ubuntu-latest
