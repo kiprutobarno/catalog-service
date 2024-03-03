@@ -74,6 +74,7 @@ jobs:
   #       run: |
   #         docker tag ${{ env.IMAGE_NAME }}:latest ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
   #         docker push ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+
   publish:
     runs-on: ubuntu-latest
     permissions:
@@ -106,7 +107,7 @@ jobs:
 
       - name: Publish container image
         run: |
-          docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker tag ${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
   # publish:
