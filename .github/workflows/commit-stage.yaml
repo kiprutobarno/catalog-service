@@ -82,19 +82,3 @@ jobs:
         run: |
           docker tag ${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-
-  publish-docker-image:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build Catalog Service Docker image
-        run: |
-          docker build --tag ghcr.io/kiprutobarno/catalog-service:latest .
-          docker run ghcr.io/kiprutobarno/catalog-service:latest
-          docker push ghcr.io/kiprutobarno/catalog-service:latest
