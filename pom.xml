@@ -97,25 +97,34 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- <configuration>
+                <configuration>
                     <image>
-                        <name>${project.name}</name>
+                        <name>${project.artifactId}:latest</name>
                         <env>
                             <BP_JVM_VERSION>21.*</BP_JVM_VERSION>
                         </env>
-                        <imageName>${module.image.name}</imageName>
-                        <publish>true</publish>
+                        <!-- use custom image timestamp, otherwise it will show 44 years ago  -->
+                        <createdDate>${maven.build.timestamp}</createdDate>
+                        <!-- <publish>true</publish> -->
                     </image>
-                    <docker>
+                    <!-- <docker>
                         <publishRegistry>
                             <username>kiprutobarno</username>
                             <password>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</password>
                             <url>ghcr.io</url>
                         </publishRegistry>
-                    </docker>
-                </configuration> -->
+                    </docker> -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/kiprutobarno/catalog-service</url>
+        </repository>
+    </distributionManagement>
 
 </project>
