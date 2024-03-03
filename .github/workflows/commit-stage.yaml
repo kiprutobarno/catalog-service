@@ -2,7 +2,7 @@ name: Commit Stage
 on: push
 
 env:
-  REGISTRY: https://ghrc.io
+  REGISTRY: ghrc.io
   USERNAME: kiprutobarno
   IMAGE_NAME: catalog-service
   VERSION: latest
