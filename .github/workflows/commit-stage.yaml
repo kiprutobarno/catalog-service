@@ -82,22 +82,25 @@ jobs:
       packages: write
       # security-events: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v3
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: Setup Caching
+        uses: actions/cache@v3
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - uses: actions/setup-java@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 21
       - name: Build container image
-        # run: mvn spring-boot:build-image -DskipTests
-        run: |
-          chmod +x mvnw
-          ./mvnw spring-boot:build-image -DskipTests
+        run: mvn spring-boot:build-image -DskipTests -Dspring-boot.build-image.imageName=my-docker-image-name
+        # run: |
+        #   chmod +x mvnw
+        #   ./mvnw spring-boot:build-image -DskipTests
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
