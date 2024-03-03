@@ -93,7 +93,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: Build container image
-        run: mvn spring-boot:build-image -DskipTests -Dspring-boot.build-image.imageName=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        run: mvn spring-boot:build-image -DskipTests
         # run: |
         #   chmod +x mvnw
         #   ./mvnw spring-boot:build-image -DskipTests
