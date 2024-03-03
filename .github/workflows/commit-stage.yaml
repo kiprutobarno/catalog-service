@@ -95,6 +95,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Catalog Service Docker image
         run: |
-          docker build -tag ghcr.io/kiprutobarno/catalog-service:latest .
+          docker build --tag ghcr.io/kiprutobarno/catalog-service:latest .
           docker run ghcr.io/kiprutobarno/catalog-service:latest
           docker push ghcr.io/kiprutobarno/catalog-service:latest
