@@ -17,13 +17,13 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             limits:
-              memory: "1Gi"
-              cpu: "500m"
+              memory: '1Gi'
+              cpu: '500m'
           ports:
             - containerPort: 9001
           env:
             - name: BPL_JVM_THREAD_COUNT
-              value: "50"
+              value: '50'
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://bookshop-postgres/bookshopdb_catalog
             - name: SPRING_PROFILES_ACTIVE

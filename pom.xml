@@ -99,7 +99,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
-                        <name>${project.artifactId}:latest</name>
+                        <!-- <name>${project.artifactId}:latest</name> -->
                         <env>
                             <BP_JVM_VERSION>21.*</BP_JVM_VERSION>
                         </env>
